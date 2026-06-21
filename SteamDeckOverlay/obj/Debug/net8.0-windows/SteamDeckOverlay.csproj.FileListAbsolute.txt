@@ -25,3 +25,4 @@
 /app/SteamDeckOverlay/obj/Debug/net8.0-windows/SettingsWindow.baml
 /app/SteamDeckOverlay/obj/Debug/net8.0-windows/SettingsWindow.g.cs
 /app/SteamDeckOverlay/obj/Debug/net8.0-windows/SteamDeckOverlay.sourcelink.json
+/app/SteamDeckOverlay/obj/Debug/net8.0-windows/App.baml

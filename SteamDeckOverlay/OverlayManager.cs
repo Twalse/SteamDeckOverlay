@@ -66,7 +66,7 @@ namespace SteamDeckOverlay
                     System.Windows.Application.Current.Dispatcher.Invoke(() =>
                     {
                         SetWindowPos(_hwnd, HWND_TOPMOST, 0, 0, 0, 0, 
-                            SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE | SWP_SHOWWINDOW);
+                            SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
                     });
                     
                     // Push to top every 1 second to combat aggressive full-screen games

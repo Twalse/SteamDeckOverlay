@@ -23,7 +23,10 @@ namespace SteamDeckOverlay
 
         public void Initialize(System.Windows.Window window, Action onHotKeyPressed)
         {
-            _hwnd = new WindowInteropHelper(window).Handle;
+            var helper = new WindowInteropHelper(window);
+            helper.EnsureHandle(); // Ensure window handle is created even if hidden
+            _hwnd = helper.Handle;
+            
             _source = HwndSource.FromHwnd(_hwnd);
             _source?.AddHook(HwndHook);
             _onHotKeyPressed = onHotKeyPressed;
