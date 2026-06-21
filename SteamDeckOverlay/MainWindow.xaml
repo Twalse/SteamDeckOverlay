@@ -1,0 +1,101 @@
+<Window x:Class="SteamDeckOverlay.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SteamDeckOverlay" Height="800" Width="1280"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        Topmost="True" ShowInTaskbar="False" ResizeMode="NoResize"
+        WindowState="Maximized">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#AA000000" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="20" Padding="20,10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation To="#FF333333" Duration="0:0:0.1" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation To="#AA000000" Duration="0:0:0.2" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="0.9" To="1.0" Duration="0:0:0.1" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"/>
+                            <DoubleAnimation From="0.9" To="1.0" Duration="0:0:0.1" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Click-through background -->
+        <Border Background="Transparent" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave"/>
+
+        <!-- Top Status Bar -->
+        <Border x:Name="TopPanel" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#00000000" CornerRadius="0,0,15,15" Padding="20,10" Margin="0,0,0,0" Height="40" IsHitTestVisible="False">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="TxtTime" Foreground="White" FontSize="14" Text="00:00" Margin="0,0,10,0"/>
+                <TextBlock Foreground="#AAFFFFFF" FontSize="14" Text="|" Margin="0,0,10,0"/>
+                
+                <TextBlock x:Name="TxtNetworkType" Foreground="White" FontSize="14" Text="📶" Margin="0,0,10,0"/>
+                <TextBlock Foreground="#AAFFFFFF" FontSize="14" Text="|" Margin="0,0,10,0"/>
+                
+                <TextBlock x:Name="TxtNetSpeed" Foreground="White" FontSize="14" Text="↓0 Мбит/с ↑0 Мбит/с" Margin="0,0,10,0"/>
+                <TextBlock Foreground="#AAFFFFFF" FontSize="14" Text="|" Margin="0,0,10,0"/>
+
+                <TextBlock x:Name="TxtBattery" Foreground="White" FontSize="14" Text="🔋 100%"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Bottom Navigation Bar -->
+        <StackPanel x:Name="BottomPanel" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,30">
+            <Button Content="▲" ToolTip="Back" Click="BtnBack_Click">
+                <Button.RenderTransform>
+                    <ScaleTransform CenterX="50" CenterY="25"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="●" ToolTip="Home" Click="BtnHome_Click">
+                <Button.RenderTransform>
+                    <ScaleTransform CenterX="50" CenterY="25"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="■" ToolTip="Windows" Click="BtnWindows_Click">
+                <Button.RenderTransform>
+                    <ScaleTransform CenterX="50" CenterY="25"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="⌨" ToolTip="Keyboard" Click="BtnKeyboard_Click">
+                <Button.RenderTransform>
+                    <ScaleTransform CenterX="50" CenterY="25"/>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="👁" ToolTip="Toggle Overlay" Click="BtnToggleOverlay_Click">
+                <Button.RenderTransform>
+                    <ScaleTransform CenterX="50" CenterY="25"/>
+                </Button.RenderTransform>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
