@@ -35,11 +35,13 @@ namespace SteamDeckOverlay
 
             if (_mainWindow.ConfigManager.CurrentConfig.StartMinimized)
             {
-                // App runs in background (Tray only) initially if configured
+                // Ensure state matches expectation if started minimized
+                _mainWindow.ConfigManager.CurrentConfig.OverlayVisible = false;
                 _mainWindow.Hide();
             }
             else
             {
+                _mainWindow.ConfigManager.CurrentConfig.OverlayVisible = true;
                 _mainWindow.Show();
             }
         }

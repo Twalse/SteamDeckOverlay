@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SteamDeckOverlay")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cab80f6f49d70e89f2e1bb0c08da1346635840f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9041c43e04d10cbf85430db6621ddd1c7386cff")]
 [assembly: System.Reflection.AssemblyProductAttribute("SteamDeckOverlay")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SteamDeckOverlay")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

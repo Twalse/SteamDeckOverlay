@@ -6,7 +6,7 @@ namespace SteamDeckOverlay
 {
     public class Config
     {
-        public bool StartMinimized { get; set; } = true;
+        public bool StartMinimized { get; set; } = false;
         public double Opacity { get; set; } = 0.8;
         public bool ShowTopPanel { get; set; } = true;
         public bool ShowBottomPanel { get; set; } = true;
